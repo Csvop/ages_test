@@ -67,9 +67,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-// CheckboxListTile(
-// value: listState[0],
-// onChanged: (b) {
-// changeTileState(0);
-// },
