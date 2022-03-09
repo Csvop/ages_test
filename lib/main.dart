@@ -9,11 +9,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'EmoKids',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Lista de Checkbox'),
+      home: MyHomePage(title: 'Emo Kids'),
     );
   }
 }
@@ -28,15 +28,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-  var listState = [
-    false,
-    false,
-    true,
-    false,
-    true,
-    false
-  ];
+  var listState = [false, false, true, false, true, false];
 
   void changeTileState(int index) {
     setState(() {
@@ -48,22 +40,102 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     // horizontal).
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: ListView.builder(
-          padding: const EdgeInsets.all(8),
-          itemCount: listState.length,
-          itemBuilder: (BuildContext context, int index) {
-            return CheckboxListTile(
-              title: Text("Uma tile da lista dus guri :)"),
-              value: listState[index],
-              onChanged: (b) {
-                changeTileState(index);
-              },
-            );
-          },
-      ),
+        appBar: AppBar(
+          title: Text(widget.title),
+          centerTitle: true,
+        ),
+        body: Column(
+          children: [
+            Container(
+                margin: EdgeInsets.only(top: 10),
+                height: 100,
+                child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 22,
+                    separatorBuilder: (context, index) => SizedBox(width: 10),
+                    itemBuilder: (BuildContext context, int index) {
+                      return Column(
+                          children: [
+                            ButtonTheme(
+                              minWidth: 100,
+                              height: 50,
+                              child: MaterialButton(
+                                onPressed: () {},
+                                color: Colors.yellow,
+                                textColor: Colors.white,
+
+                                child: Icon(
+                                  Icons.agriculture,
+                                  size: 35,
+                                ),
+                                shape: CircleBorder(),
+                              ),
+                            ),
+                            Text("Sentimento")
+                          ]
+                      );
+                    })
+            ),
+            Container(
+                height: 100,
+                child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 22,
+                    separatorBuilder: (context, index) => SizedBox(width: 10),
+                    itemBuilder: (BuildContext context, int index) {
+                      return Column(
+                          children: [
+                            ButtonTheme(
+                              minWidth: 100,
+                              height: 50,
+                              child: MaterialButton(
+                                onPressed: () {},
+                                color: Colors.yellow,
+                                textColor: Colors.white,
+
+                                child: Icon(
+                                  Icons.agriculture,
+                                  size: 35,
+                                ),
+                                shape: CircleBorder(),
+                              ),
+                            ),
+                            Text("Sentimento")
+                          ]
+                      );
+                    })
+            ),
+            Container(
+                height: 100,
+                child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 22,
+                    separatorBuilder: (context, index) => SizedBox(width: 10),
+                    itemBuilder: (BuildContext context, int index) {
+                      return Column(
+                          children: [
+                            ButtonTheme(
+                              minWidth: 100,
+                              height: 50,
+                                child: MaterialButton(
+                                  onPressed: () {},
+                                  color: Colors.yellow,
+                                  textColor: Colors.white,
+
+                                  child: Icon(
+                                    Icons.agriculture,
+                                    size: 35,
+                                  ),
+                                  shape: CircleBorder(),
+                                ),
+                            ),
+                            Text("Sentimento")
+                          ]
+                      );
+                    })
+            ),
+          ],
+        ),
     );
   }
 }
