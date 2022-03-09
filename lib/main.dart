@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'EmoKids',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.amber,
       ),
-      home: MyHomePage(title: 'Emo Kids'),
+      home: MyHomePage(title: 'Cardápio da emoções'),
     );
   }
 }
@@ -40,7 +40,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     // horizontal).
     return Scaffold(
+        drawer: Text("Olá, Mundo!"),
         appBar: AppBar(
+
           title: Text(widget.title),
           centerTitle: true,
         ),
@@ -90,11 +92,11 @@ class _MyHomePageState extends State<MyHomePage> {
                               height: 50,
                               child: MaterialButton(
                                 onPressed: () {},
-                                color: Colors.yellow,
+                                color: Colors.redAccent,
                                 textColor: Colors.white,
 
                                 child: Icon(
-                                  Icons.agriculture,
+                                  Icons.alarm_on_rounded,
                                   size: 35,
                                 ),
                                 shape: CircleBorder(),
@@ -119,11 +121,11 @@ class _MyHomePageState extends State<MyHomePage> {
                               height: 50,
                                 child: MaterialButton(
                                   onPressed: () {},
-                                  color: Colors.yellow,
+                                  color: Colors.blue,
                                   textColor: Colors.white,
 
                                   child: Icon(
-                                    Icons.agriculture,
+                                    Icons.ac_unit,
                                     size: 35,
                                   ),
                                   shape: CircleBorder(),
