@@ -8,10 +8,25 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Map<int, Color> colorCodes = {
+      50: Colors.amber.shade50,
+      100: Colors.amber.shade100,
+      200: Colors.amber.shade200,
+      300: Colors.amber.shade300,
+      400: Colors.amber.shade400,
+      500: Colors.amber.shade500,
+      600: Colors.amber.shade600,
+      700: Colors.amber.shade700,
+      800: Colors.amber.shade800,
+      900: Colors.amber.shade900,
+    };
+
+    final MaterialColor themeColor = MaterialColor(0xFFFFECB3, colorCodes);
+
     return MaterialApp(
       title: 'EmoKids',
       theme: ThemeData(
-        primarySwatch: Colors.amber,
+        primarySwatch: themeColor,
       ),
       home: MyHomePage(title: 'Cardápio da emoções'),
     );
@@ -28,11 +43,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var listState = [false, false, true, false, true, false];
+  var goodEmotions = ["Euforia","Felicidade","Excitação","Felicidade","Excitação"];
+  var badEmotions = ["Raiva","Estresse","Briga","Estresse","Briga"];
+  var depressionEmotions = ["Desânimo","Decepção","Tristeza","Decepção","Tristeza"];
 
   void changeTileState(int index) {
     setState(() {
-      listState[index] = !listState[index];
+
     });
   }
 
@@ -53,27 +70,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 100,
                 child: ListView.separated(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 22,
+                    itemCount: goodEmotions.length,
                     separatorBuilder: (context, index) => SizedBox(width: 10),
                     itemBuilder: (BuildContext context, int index) {
                       return Column(
                           children: [
                             ButtonTheme(
                               minWidth: 100,
-                              height: 50,
+                              height: 80,
                               child: MaterialButton(
-                                onPressed: () {},
+                                onPressed: () {
+
+                                },
                                 color: Colors.yellow,
                                 textColor: Colors.white,
-
-                                child: Icon(
-                                  Icons.agriculture,
-                                  size: 35,
-                                ),
                                 shape: CircleBorder(),
                               ),
                             ),
-                            Text("Sentimento")
+                            Text(goodEmotions[index])
                           ]
                       );
                     })
@@ -82,27 +96,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 100,
                 child: ListView.separated(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 22,
+                    itemCount: badEmotions.length,
                     separatorBuilder: (context, index) => SizedBox(width: 10),
                     itemBuilder: (BuildContext context, int index) {
                       return Column(
                           children: [
                             ButtonTheme(
                               minWidth: 100,
-                              height: 50,
+                              height: 80,
                               child: MaterialButton(
                                 onPressed: () {},
                                 color: Colors.redAccent,
                                 textColor: Colors.white,
-
-                                child: Icon(
-                                  Icons.alarm_on_rounded,
-                                  size: 35,
-                                ),
                                 shape: CircleBorder(),
                               ),
                             ),
-                            Text("Sentimento")
+                            Text(badEmotions[index])
                           ]
                       );
                     })
@@ -111,27 +120,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 100,
                 child: ListView.separated(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 22,
+                    itemCount: badEmotions.length,
                     separatorBuilder: (context, index) => SizedBox(width: 10),
                     itemBuilder: (BuildContext context, int index) {
                       return Column(
                           children: [
                             ButtonTheme(
                               minWidth: 100,
-                              height: 50,
+                              height: 80,
                                 child: MaterialButton(
                                   onPressed: () {},
                                   color: Colors.blue,
                                   textColor: Colors.white,
-
-                                  child: Icon(
-                                    Icons.ac_unit,
-                                    size: 35,
-                                  ),
                                   shape: CircleBorder(),
                                 ),
                             ),
-                            Text("Sentimento")
+                            Text(badEmotions[index])
                           ]
                       );
                     })
