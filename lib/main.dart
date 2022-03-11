@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: themeColor,
       ),
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(title: 'Cardápio da emoções'),
     );
   }
@@ -43,105 +44,104 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var goodEmotions = ["Euforia","Felicidade","Excitação","Felicidade","Excitação"];
-  var badEmotions = ["Raiva","Estresse","Briga","Estresse","Briga"];
-  var depressionEmotions = ["Desânimo","Decepção","Tristeza","Decepção","Tristeza"];
+  var goodEmotions = [
+    "Euforia",
+    "Felicidade",
+    "Excitação",
+    "Felicidade",
+    "Excitação"
+  ];
+  var badEmotions = ["Raiva", "Estresse", "Briga", "Estresse", "Briga"];
+  var depressionEmotions = [
+    "Desânimo",
+    "Decepção",
+    "Tristeza",
+    "Decepção",
+    "Tristeza"
+  ];
 
   void changeTileState(int index) {
-    setState(() {
-
-    });
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     // horizontal).
     return Scaffold(
-        drawer: Text("Olá, Mundo!"),
-        appBar: AppBar(
-
-          title: Text(widget.title),
-          centerTitle: true,
-        ),
-        body: Column(
-          children: [
-            Container(
-                margin: EdgeInsets.only(top: 10),
-                height: 100,
-                child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: goodEmotions.length,
-                    separatorBuilder: (context, index) => SizedBox(width: 10),
-                    itemBuilder: (BuildContext context, int index) {
-                      return Column(
-                          children: [
-                            ButtonTheme(
-                              minWidth: 100,
-                              height: 80,
-                              child: MaterialButton(
-                                onPressed: () {
-
-                                },
-                                color: Colors.yellow,
-                                textColor: Colors.white,
-                                shape: CircleBorder(),
-                              ),
-                            ),
-                            Text(goodEmotions[index])
-                          ]
-                      );
-                    })
-            ),
-            Container(
-                height: 100,
-                child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: badEmotions.length,
-                    separatorBuilder: (context, index) => SizedBox(width: 10),
-                    itemBuilder: (BuildContext context, int index) {
-                      return Column(
-                          children: [
-                            ButtonTheme(
-                              minWidth: 100,
-                              height: 80,
-                              child: MaterialButton(
-                                onPressed: () {},
-                                color: Colors.redAccent,
-                                textColor: Colors.white,
-                                shape: CircleBorder(),
-                              ),
-                            ),
-                            Text(badEmotions[index])
-                          ]
-                      );
-                    })
-            ),
-            Container(
-                height: 100,
-                child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: badEmotions.length,
-                    separatorBuilder: (context, index) => SizedBox(width: 10),
-                    itemBuilder: (BuildContext context, int index) {
-                      return Column(
-                          children: [
-                            ButtonTheme(
-                              minWidth: 100,
-                              height: 80,
-                                child: MaterialButton(
-                                  onPressed: () {},
-                                  color: Colors.blue,
-                                  textColor: Colors.white,
-                                  shape: CircleBorder(),
-                                ),
-                            ),
-                            Text(badEmotions[index])
-                          ]
-                      );
-                    })
-            ),
-          ],
-        ),
+      drawer: Text("Olá, Mundo!"),
+      appBar: AppBar(
+        title: Text(widget.title),
+        centerTitle: true,
+      ),
+      backgroundColor: Colors.grey.shade100,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+              height: 100,
+              child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: goodEmotions.length,
+                  separatorBuilder: (context, index) => SizedBox(width: 5),
+                  itemBuilder: (BuildContext context, int index) {
+                    return Column(children: [
+                      ButtonTheme(
+                        minWidth: 100,
+                        height: 80,
+                        child: MaterialButton(
+                          onPressed: () {},
+                          color: Colors.yellow,
+                          textColor: Colors.white,
+                          shape: CircleBorder(),
+                        ),
+                      ),
+                      Text(goodEmotions[index])
+                    ]);
+                  })),
+          Container(
+              height: 100,
+              child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: badEmotions.length,
+                  separatorBuilder: (context, index) => SizedBox(width: 5),
+                  itemBuilder: (BuildContext context, int index) {
+                    return Column(children: [
+                      ButtonTheme(
+                        minWidth: 100,
+                        height: 80,
+                        child: MaterialButton(
+                          onPressed: () {},
+                          color: Colors.redAccent,
+                          textColor: Colors.white,
+                          shape: CircleBorder(),
+                        ),
+                      ),
+                      Text(badEmotions[index])
+                    ]);
+                  })),
+          Container(
+              height: 100,
+              child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: badEmotions.length,
+                  separatorBuilder: (context, index) => SizedBox(width: 5),
+                  itemBuilder: (BuildContext context, int index) {
+                    return Column(children: [
+                      ButtonTheme(
+                        minWidth: 100,
+                        height: 80,
+                        child: MaterialButton(
+                          onPressed: () {},
+                          color: Colors.blue,
+                          textColor: Colors.white,
+                          shape: CircleBorder(),
+                        ),
+                      ),
+                      Text(depressionEmotions[index])
+                    ]);
+                  })),
+        ],
+      ),
     );
   }
 }
